@@ -1,3 +1,3 @@
 export function FeedbackSucessStep() {
-  return <div>FeedbackSucessStep</div>;
+  return <div>Sucess</div>;
 }
