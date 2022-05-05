@@ -1,9 +1,31 @@
 import { CloseButton } from "./CloseButton";
 
+import bugImageUrl from "../assets/bug.svg";
+import ideaImageUrl from "../assets/lightbulb.svg";
+import thoughtImageUrl from "../assets/cloud.svg";
+
 const feedbackTypes = {
-  BUG: {title:"Problema"},
-  IDEA: {title:"Ideia"},
-  OTHER: {title:"Outro"},
+  BUG: {
+    title: "Problema",
+    image: {
+      source: "bugImageUrl",
+      alt: "Imagem de um inseto",
+    },
+  },
+  IDEA: {
+    title: "Ideia",
+    image: {
+      source: "ideaImageUrl",
+      alt: "Imagem de uma lâmpada",
+    },
+  },
+  OTHER: {
+    title: "Outro",
+    image: {
+      source: "thoughtImageUrl",
+      alt: "Imagem de uma nuvem de pensamento",
+    },
+  },
 };
 
 export function WidgetForm() {
