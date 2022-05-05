@@ -1,8 +1,7 @@
-import { CloseButton } from "./CloseButton";
-
-import bugImageUrl from "../assets/bug.svg";
-import ideaImageUrl from "../assets/lightbulb.svg";
-import thoughtImageUrl from "../assets/cloud.svg";
+import { CloseButton } from "../CloseButton";
+import bugImageUrl from "../../assets/bug.svg";
+import ideaImageUrl from "../../assets/lightbulb.svg";
+import thoughtImageUrl from "../../assets/cloud.svg";
 import { useState } from "react";
 
 const feedbackTypes = {
@@ -57,7 +56,9 @@ export function WidgetForm() {
             );
           })}
         </div>
-      ) : (<p>Relatando o problema do feedback</p>)}
+      ) : (
+        <p>Relatando o problema do feedback</p>
+      )}
 
       <footer className="text-xs text-neutral-400">
         Feito com ♥ pela{" "}
