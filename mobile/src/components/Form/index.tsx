@@ -3,6 +3,7 @@ import React from "react";
 import { View, Text, TextInput, Image, TouchableOpacity } from "react-native";
 import { theme } from "../../theme";
 import { feedbackTypes } from "../../utils/feedbackTypes";
+import { Button } from "../Button";
 import { ScreenshotButton } from "../ScreenshotButton";
 import { FeedbackType } from "../Widget";
 
@@ -35,12 +36,13 @@ export function Form({ feedbackType }: Props) {
         placeholder="Digite seu problema"
         placeholderTextColor={theme.colors.text_secondary}
       />
-      <View styles={styles.footer}>
+      <View style={styles.footer}>
         <ScreenshotButton
           onTakeShot={() => {}}
           onRemoveShot={() => {}}
           screenshot=""
         />
+        <Button isLoading={false} />
       </View>
     </View>
   );
