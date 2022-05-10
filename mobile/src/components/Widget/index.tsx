@@ -21,7 +21,13 @@ function Widget() {
           color={theme.colors.text_on_brand_color}
         />
       </TouchableOpacity>
-      <BottomSheet ref={bottomSheetRef} snapPoints={[1, 280]}></BottomSheet>
+      <BottomSheet
+        ref={bottomSheetRef}
+        snapPoints={[1, 280]}
+        children={undefined}
+        backgroundStyle={styles.modal}
+        handleIndicatorStyle={styles.indicator}
+      ></BottomSheet>
     </>
   );
 }
