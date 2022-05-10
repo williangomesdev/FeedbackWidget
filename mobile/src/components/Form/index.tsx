@@ -2,6 +2,7 @@ import { ArrowLeft } from "phosphor-react-native";
 import React, { useState } from "react";
 import { View, Text, TextInput, Image, TouchableOpacity } from "react-native";
 import { captureScreen } from "react-native-view-shot";
+import { api } from "../../libs/api";
 import { theme } from "../../theme";
 import { feedbackTypes } from "../../utils/feedbackTypes";
 import { Button } from "../Button";
@@ -21,7 +22,10 @@ export function Form({
   onFeedbackCanceled,
   onFeedbackSent,
 }: Props) {
+  const [isSendingFeedback, setIsSendingFeedback] = useState(false);
   const [screenshot, setScreenshot] = useState<string | null>(null);
+  const [comment, setComment] = useState("");
+
   const feedbackTypeInfo = feedbackTypes[feedbackType];
 
   function handleScreenshot() {
@@ -35,6 +39,27 @@ export function Form({
 
   function handleScreenshotRemove() {
     setScreenshot(null);
+  }
+
+  async function handleSendFeedback() {
+    if (isSendingFeedback) {
+      return;
+    }
+
+    setIsSendingFeedback(true);
+
+    try {
+      await api.post("/feedbacks", {
+        type: feedbackType,
+        screenshot,
+        comment,
+      });
+
+      onFeedbackSent();
+    } catch (error) {
+      console.log(error);
+      setIsSendingFeedback(false);
+    }
   }
 
   return (
@@ -57,6 +82,8 @@ export function Form({
         style={styles.input}
         placeholder="Digite seu problema"
         placeholderTextColor={theme.colors.text_secondary}
+        autoCorrect={false}
+        onChangeText={setComment}
       />
       <View style={styles.footer}>
         <ScreenshotButton
@@ -64,7 +91,7 @@ export function Form({
           onRemoveShot={handleScreenshotRemove}
           screenshot={screenshot}
         />
-        <Button isLoading={false} />
+        <Button onPress={handleSendFeedback} isLoading={isSendingFeedback} />
       </View>
     </View>
   );
