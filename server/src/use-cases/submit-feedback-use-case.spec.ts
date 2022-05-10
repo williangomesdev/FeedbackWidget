@@ -46,7 +46,7 @@ describe("Submit feedback", () => {
     await expect(
       submitFeedback.execute({
         type: "BUG",
-        comment: "tatudo bugado",
+        comment: "ta tudo bugado",
         screenshot: "test.jpg",
       })
     ).rejects.toThrow();
