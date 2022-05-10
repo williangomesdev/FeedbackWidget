@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     marginRight: 8,
   },
   input: {
-    width:'100%',
+    width: "100%",
     height: 112,
     padding: 12,
     marginBottom: 8,
@@ -37,5 +37,9 @@ export const styles = StyleSheet.create({
     borderColor: theme.colors.stroke,
     color: theme.colors.text_primary,
     fontFamily: theme.fonts.regular,
+  },
+  footer: {
+    flexDirection: "row",
+    marginBottom: 16,
   },
 });
