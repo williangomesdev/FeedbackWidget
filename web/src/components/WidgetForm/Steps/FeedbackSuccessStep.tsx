@@ -1,12 +1,12 @@
 import { CloseButton } from "../../CloseButton";
 
-interface FeedbackSucessStepProps {
+interface FeedbackSuccessStepProps {
   onFeedbackRestartRequested: () => void;
 }
 
-export function FeedbackSucessStep({
+export function FeedbackSuccessStep({
   onFeedbackRestartRequested,
-}: FeedbackSucessStepProps) {
+}: FeedbackSuccessStepProps) {
   return (
     <>
       <header>
